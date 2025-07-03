@@ -19,6 +19,7 @@ def make_run_report(
     full_dataset: list,
     run_id: str,
     client: Optional[docker.DockerClient] = None,
+    report_dir: str = ".",
 ) -> Path:
     """
     Make a final evaluation and run report of the instances that have been run.
@@ -133,7 +134,7 @@ def make_run_report(
         + f".{run_id}"
         + ".json"
     )
-    with open(report_file, "w") as f:
+    with open(Path(report_dir) / report_file, "w") as f:
         print(json.dumps(report, indent=4), file=f)
     print(f"Report written to {report_file}")
     return report_file
