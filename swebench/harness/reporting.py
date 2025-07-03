@@ -136,5 +136,5 @@ def make_run_report(
     )
     with open(Path(report_dir) / report_file, "w") as f:
         print(json.dumps(report, indent=4), file=f)
-    print(f"Report written to {report_file}")
+    print(f"Report written to {Path(report_dir) / report_file}")
     return report_file
